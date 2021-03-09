@@ -1,8 +1,8 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
-set :repo_url,        'git@github.com:ali-hassan/Equiprr.git'
-set :application,     'Equiprr'
+set :repo_url,        'git@github.com:ali-hassan/marketplace.git'
+set :application,     'marketplace'
 set :user,            'ubuntu'
 set :puma_threads,    [4, 16]
 set :puma_workers,    3
