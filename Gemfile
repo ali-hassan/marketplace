@@ -185,6 +185,7 @@ gem 'bootsnap', require: false
 gem "select2-rails"
 gem "cocoon"
 gem "fast-polylines"
+
 group :deployment do
   gem "capistrano", "=3.11"
   gem 'capistrano3-delayed-job', '~> 1.0'
