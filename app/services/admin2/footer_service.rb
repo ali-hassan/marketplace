@@ -4,13 +4,14 @@ class Admin2::FooterService
   def initialize(community:, params:, plan:)
     @params = params
     @community = community
+    plan[:features][:footer] = true
     @plan = plan
   end
 
   def plan_footer_disabled?
-    return true unless plan
-
-    !plan.dig(:features, :footer).present?
+    # return true unless plan
+    #
+    # !plan.dig(:features, :footer).present?
   end
 
   def footer_menu_links # rubocop:disable Rails/Delegate
