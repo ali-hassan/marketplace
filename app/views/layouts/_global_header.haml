@@ -38,7 +38,7 @@
         #header-menu-mobile-anchor.header-menu-toggle-container.toggle-header-container
           = icon_map_tag(icons, "rows", ["header-menu-icon"])
           %span.visible-tablet-inline
-            = t("header.menu")
+            -#= t("header.menu")
 
     = render :partial => "layouts/header_menu", locals: { locale_change_links: locale_change_links, icons: icons}
 
