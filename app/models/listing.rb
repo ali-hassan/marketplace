@@ -64,6 +64,7 @@
 #  listings_homepage_query             (community_id,open,state,deleted,valid_until,sort_date)
 #  listings_updates_email              (community_id,open,state,deleted,valid_until,updates_email_at,created_at)
 #  person_listings                     (community_id,author_id)
+#  tmp_homepage_query                  (community_id,open,valid_until,sort_date,deleted)
 #
 
 class Listing < ApplicationRecord
@@ -106,6 +107,7 @@ class Listing < ApplicationRecord
   has_many :blocked_dates, :dependent => :destroy
   accepts_nested_attributes_for :blocked_dates, reject_if: :all_blank, allow_destroy: true
 
+  has_many :monthly_subscriptions
   monetize :price_cents, :allow_nil => true, with_model_currency: :currency
   monetize :shipping_price_cents, allow_nil: true, with_model_currency: :currency
   monetize :shipping_price_additional_cents, allow_nil: true, with_model_currency: :currency

@@ -196,3 +196,4 @@ group :deployment do
   gem 'capistrano3-puma',   require: false
   gem 'capistrano-npm'
 end
+gem 'whenever', require: false

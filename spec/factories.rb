@@ -53,6 +53,12 @@ class FactoryGirl::DefinitionProxy
 end
 
 FactoryGirl.define do
+  factory :monthly_subscription do
+    listing_id 1
+    person_id "MyString"
+    opts ""
+    date "2021-03-25 03:31:53"
+  end
   sequence :id do |_|
     SecureRandom.urlsafe_base64
   end
