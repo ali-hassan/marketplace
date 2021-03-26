@@ -14,7 +14,9 @@ module TransactionService::Gateway
     end
 
     def tx_process_settings(opts_tx)
-      currency = opts_tx[:unit_price].currency
+
+      currency = opts_tx[:unit_price].try(:currency).present? ? opts_tx[:unit_price].try(:currency) : Money::Currency.find(opts_tx[:unit_price]["currency"]["id"])
+
       p_set = PaymentSettingsStore.get_active_by_gateway(community_id: opts_tx[:community_id], payment_gateway: :stripe)
 
       result = {

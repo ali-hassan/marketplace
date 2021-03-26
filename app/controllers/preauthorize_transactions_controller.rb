@@ -292,8 +292,14 @@ class PreauthorizeTransactionsController < ApplicationController
     if(opts[:delivery_method] == :shipping)
       transaction[:shipping_price] = opts[:shipping_price]
     end
-    MonthlySubscription.create(listing_id: transaction[:listing_id], listing_uuid: transaction[:listing_uuid], transaction_opts: transaction,
-                               gateway_fields: gateway_fields, person_id: opts[:user].id, person_uuid: opts[:user].uuid_object, invoice_date: Date.today)
+
+    MonthlySubscription.create(listing_id: transaction[:listing_id],
+                               listing_uuid: transaction[:listing_uuid],
+                               transaction_opts: transaction,
+                               gateway_fields: gateway_fields,
+                               person_id: opts[:user].id,
+                               person_uuid: opts[:user].uuid_object,
+                               invoice_date: Date.today)
 
     TransactionService::Transaction.create({
         transaction: transaction,
