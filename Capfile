@@ -8,6 +8,7 @@ install_plugin Capistrano::SCM::Git
 require 'capistrano/rvm'
 require 'capistrano/ssh_doctor'
 require 'capistrano/bundler'
+require "whenever/capistrano"
 
 require 'capistrano/rails/assets'
 # require 'capistrano/rails/migrations'
