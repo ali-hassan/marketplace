@@ -2,7 +2,7 @@
 task subscriptions: :environment do
   Rails.logger.info "Whenever task"
   MonthlySubscription.all.map do |ms|
-    if ms.invoice_date == 1.month.ago
+    if ms.invoice_date <= 1.day.ago
       gateway_fields = {stripe_email: ms.gateway_fields["stripe_email"], stripe_token: ms.gateway_fields["stripe_token"], shipping_address: ms.gateway_fields["stripe_token"], service_name: ms.gateway_fields["stripe_token"], stripe_payment_method_id: ms.gateway_fields["stripe_payment_method_id"]}
       opts = ms.transaction_opts
       @community  = Community.find_by_id(opts["community_id"])
@@ -60,7 +60,6 @@ task subscriptions: :environment do
                         },
                         delivery_method: ms.transaction_opts["delivery_method"]}
 
-      debugger
       TransactionService::Transaction.create({transaction: transaction, gateway_fields: gateway_fields}, force_sync: true)
     end
   end
