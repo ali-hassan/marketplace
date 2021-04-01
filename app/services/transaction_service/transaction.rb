@@ -109,17 +109,24 @@ module TransactionService::Transaction
     tx_process_settings = set_adapter.tx_process_settings(opts_tx)
 
     tx = TxStore.create(opts_tx.merge(tx_process_settings))
+    # tx  = Transaction.where(starter_id: opts_tx[:starter_id], community_id: opts_tx[:community_id], listing_id: opts_tx[:listing_id], listing_author_id: opts_tx[:listing_author_id])
+    # if tx.empty?
+    #   tx = TxStore.create(opts_tx.merge(tx_process_settings))
+    # else
+    #   tx = tx[0]
+    # end
+
     unless tx.persisted?
       return Result::Error.new(BookingDatesInvalid.new(I18n.t("error_messages.booking.double_booking_payment_voided")))
     end
 
     tx_process = tx_process(tx[:payment_process])
     gateway_adapter = gateway_adapter(tx[:payment_gateway])
+
     res = tx_process.create(tx: tx,
                             gateway_fields: opts[:gateway_fields],
                             gateway_adapter: gateway_adapter,
                             force_sync: force_sync)
-
     tx.reload
     res.maybe()
       .map { |gw_fields| Result::Success.new(create_transaction_response(tx, gw_fields)) }

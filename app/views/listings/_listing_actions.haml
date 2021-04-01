@@ -71,12 +71,14 @@
             %label.quantity-label{for: 'quantity'}
               = ListingViewUtils.translate_quantity(@listing.unit_type, @listing.unit_selector_tr_key)
           .quantity-input.input-sm.required
-            %input#quantity{type: 'number', placeholder: t("listings.quantity_placeholder"), name: 'quantity', value: 1, min: 1, step: 1}
+            %input#quantity{type: 'hidden', placeholder: t("listings.quantity_placeholder"), name: 'quantity', value: 1, min: 3, step: 3, max: 12}
+            %input#quantity1{type: 'number', placeholder: t("listings.quantity_placeholder"), name: 'quantity1', value: 3, min: 3, step: 3, max: 12}
 
       = render partial: "delivery_opts", locals: { delivery_opts: @listing_presenter.delivery_opts, is_author: @listing_presenter.is_author }
 
       = hidden_field_tag(:listing_id, @listing.id)
 
+      %p Minimum Garden Rental is 3 months. Your booking will automatically renew every month until cancelled by either party.
       - if @listing_presenter.buyer_fee?
         .row
           .col-12
