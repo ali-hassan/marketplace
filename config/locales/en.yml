@@ -2019,7 +2019,7 @@ en:
       private_listing_notification_log_in: "log in"
       is: is
       are: are
-      what_do_you_need: "What are you looking for?"
+      what_do_you_need: "Search Available Plots"
       post_new_listing: "Post a new listing"
       are_offering: offer
       add_news_item: "Add an article"
@@ -2089,7 +2089,7 @@ en:
     hero:
       search: Search
       signup: "Sign up"
-      search_placeholder: "What are you looking for?"
+      search_placeholder: "Search Available Plots"
       search_location_placeholder: Location
     listings:
       no_listing_image: "No picture"
@@ -2553,7 +2553,7 @@ en:
       add_profile_picture: "Add profile picture"
       comments: "Public discussion"
       contact_by_phone: "Contact by phone:"
-      contact: Contact
+      contact: Message the Host
       favor_offer: "Service offer"
       favor_request: "Service request"
       inquiry: Announcement
