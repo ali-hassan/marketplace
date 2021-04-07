@@ -17,12 +17,12 @@
                 - if community && community.wide_logo.present?
                   %tr
                     %td.logo
-                      = image_tag community.wide_logo.url(:header), alt: community_name, style: 'margin: 0 auto;'
+                      = image_url community.wide_logo.url(:header), alt: community_name, style: 'margin: 0 auto;'
                 - elsif @community
                   %tr
                     %td.community-name
                       %font
-                        = community_name
+                        = image_url community.wide_logo.url(:header), alt: community_name, style: 'margin: 0 auto;'
 
                 = yield
 
