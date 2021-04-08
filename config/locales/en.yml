@@ -1408,7 +1408,7 @@ en:
       offer_accepted: Accepted
       offer_rejected: Rejected
       offer_canceled: Canceled
-      offer_confirmed: Completed
+      offer_confirmed: Rented
       offer_paid: "Payment successful"
       offer_preauthorized: "Payment successful"
       offer_waiting_for_payment: "Waiting for %{requester_name} to pay"
