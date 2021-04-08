@@ -1,7 +1,7 @@
 !!!
 
 %html
-
+  - @host = 'http://app.allotme.co.uk'
   = render 'layouts/email_head'
 
   %body
@@ -12,11 +12,11 @@
           %td{:align => "center", :valign => "top"}
             %table{:cellspacing => "0", :cellpadding => "0", :width => "400"}
               %tbody
-                - community = @community || @current_community
+                - community = @community || @current_community || Community.first
                 - if community && community.wide_logo.present?
                   %tr
                     %td{align: "center"}
-                      = image_tag community.wide_logo.url(:header), alt: community.full_name(I18n.locale), style: 'margin: 0 auto;'
+                      = image_tag(@host+community.wide_logo.url(:header), alt: community.full_name(I18n.locale), style: 'margin: 0 auto;')
                 - if @community
                   %tr
                     %td{:align => "left", :style => "padding-top: 20px; padding-bottom: 5px; border-bottom:1px dotted grey;"}
