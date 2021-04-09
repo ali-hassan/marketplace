@@ -21,6 +21,11 @@
  *  Work: Lead Product Designer @ http://kyruus.com
  */
 
+/*@font-face{*/
+    /*font-family:'DTLNObel';*/
+    /*asset-url('fDTLNobel-T-Bold_14677.tff') format('truetype');*/
+     /*}*/
+
 @font-face{
   font-family:'FontAwesome';
   src:asset-url('fontawesome-webfont.eot?v=3.0.1');
