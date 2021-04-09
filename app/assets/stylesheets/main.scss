@@ -30,6 +30,10 @@ a, input, button {
   Typography and link styles
   --------------------------
 */
+@font-face{
+font-family:'DTLNObel';
+src: asset-url('DTLNobel-T-Bold.tff');
+}
 
 body {
   @include source-sans-pro;
