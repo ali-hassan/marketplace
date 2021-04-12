@@ -14,6 +14,8 @@
 *, *:before, *:after {
   @include box-sizing(border-box);
 }
+//@import url('../fonts/DTLNobel-T-Bold.tff');
+
 
 /**
   Enable fast click:
@@ -31,8 +33,13 @@ a, input, button {
   --------------------------
 */
 @font-face{
-font-family:'DTLNObel';
-src: asset-url('DTLNobel-T-Bold.tff');
+  font-family:'DTLNObel';
+  src: asset-url('DTLNobel-T-Bold.tff');
+}
+
+
+.title-container{
+  font-family: DTLNObel !important;
 }
 
 body {
