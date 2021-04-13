@@ -39,13 +39,13 @@ a, input, button {
 
 
 .title-container{
-  font-family: DTLNObel !important;
+  font-family: DTLNobel !important;
 }
 
 body {
   @include source-sans-pro;
   @include normal-type;
-
+  font-family: DTLNobel !important;
   @include media(tiny-mobile) {
     // Zooms out on tiny screens
     font-size: em(13);
