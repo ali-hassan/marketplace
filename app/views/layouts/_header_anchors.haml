@@ -5,6 +5,6 @@
         = image_tag avatar_url, alt: '', class: 'header-user-avatar'
       .left
         %span.header-text-link
-          %span#header-user-display-name.visible-tablet-inline
+          %span#header-user-display-name.visible-tablet-inline{style:"font-family: DTLNObelBold !important;"}
             = current_user_name
           = icon_map_tag(icons, "dropdown", ["icon-dropdown"])
