@@ -54,6 +54,7 @@
 
 .home-toolbar-button-text {
   display: none;
+  font-family: DTLNObelBold !important;
 
   @include media(tablet) {
     margin-left: lines(0.25);
