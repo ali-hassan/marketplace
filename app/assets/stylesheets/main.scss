@@ -33,8 +33,16 @@ a, input, button {
   --------------------------
 */
 @font-face{
+  font-family:'DTLNObelBold';
+  src:asset-url('DTLNobel-T-Bold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face{
   font-family:'DTLNObel';
-  src: asset-url('DTLNobel-T-Bold.tff');
+  src:asset-url('DTL-Nobel-T-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 
