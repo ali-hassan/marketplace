@@ -2340,6 +2340,7 @@ en:
       you_must: "You must"
       subscribe_to_comments: "Notify me of new comments and updates"
     deleting_a_listing_cannot_be_undone: "Deleting a listing cannot be undone. Are you sure you want to proceed?"
+    cancel_a_listing_cannot_be_undone: "Unsubscribe a listing cannot be undone. Are you sure you want to Unsubscribe?"
     edit:
       edit_listing: "Edit listing"
     edit_links:
@@ -2356,6 +2357,7 @@ en:
       approve_listing: "Approve listing"
       reject_listing: "Reject listing"
       delete_listing: "Delete listing"
+      cancel_listing: "Cancel Subscription"
     map:
       open_in_google_maps: "Open in Google Maps"
     error:

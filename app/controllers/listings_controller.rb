@@ -99,6 +99,13 @@ class ListingsController < ApplicationController
         payment_process: @listing_presenter.process })
   end
 
+  def cancel_subscription
+    @listing      = Listing.find_by(id: params[:id])
+    @subscription = @listing.subscription(@current_user)
+    flash[:notice] = "Successfully unsubscribed the listing"
+    redirect_to listing_path(@listing)
+  end
+
   def new
     @listing = Listing.new
     make_listing_presenter

@@ -512,7 +512,7 @@ Rails.application.routes.draw do
 
     get '/admin2', to: redirect('/admin')
     get '/:locale/admin2(*all)', to: redirect('/%{locale}/admin%{all}')
-    
+
     scope module: "admin", path: "/admin_old", as: "admin" do
       get '' => "getting_started_guide#index"
 
@@ -751,6 +751,7 @@ Rails.application.routes.draw do
         get :browse
         get :locations_json
         get :verification_required
+        get :cancel_subscription
       end
       resources :comments, :only => [:create, :destroy]
       resources :listing_images do
