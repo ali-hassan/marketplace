@@ -145,11 +145,13 @@ module TransactionService::Transaction
     # as a reaction to payment event
     proc_token = ProcessTokenStore.get_by_transaction(community_id: community_id,
                                                       transaction_id: transaction_id,
+
                                                       op_name: :do_finalize_create)
 
     res =
       if !force_sync && proc_token.present?
         proc_status_response(proc_token)
+
       elsif tx.nil?
         # Transaction doesn't exist.
         #

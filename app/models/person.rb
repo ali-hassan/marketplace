@@ -251,6 +251,10 @@ class Person < ApplicationRecord
     end
   end
 
+  def subscribed_listings
+    self.monthly_subscriptions.collect(&:listing).uniq
+  end
+
   # Creates a new email
   def email_attributes=(attributes)
     ActiveSupport::Deprecation.warn(

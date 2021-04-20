@@ -84,6 +84,20 @@
           #profile-testimonials-list
             = render :partial => "testimonials", :locals => {:received_testimonials => @service.received_testimonials, :limit => 3}
 
+    #profile-listings-list.listing-main
+      .row
+        %h2.people-header
+          Subscribed Listings
+        %h2.people-header
+          %ul
+            - @listings = @current_user.subscribed_listings
+            - @listings.each do |ms|
+              - title = ms.title.downcase.gsub(" ", "-")
+              - id = ms.id
+              - url = "#{id}-#{title}"
+              %li
+                = link_to("#{ms.title}", listing_path(url))
+
   .col-4
     .row
       .people-image
