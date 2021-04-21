@@ -87,7 +87,7 @@
     #profile-listings-list.listing-main
       .row
         %h2.people-header
-          Subscribed Listings
+          Subscribed Listings (Click on listing to unsubscribe)
         %h2.people-header
           %ul
             - @listings = @current_user.subscribed_listings
@@ -96,7 +96,7 @@
               - id = ms.id
               - url = "#{id}-#{title}"
               %li
-                = link_to("#{ms.title}", listing_path(url))
+                = link_to("#{ms.title}", "mailto:Rentals@allotme.co.uk")
 
   .col-4
     .row
