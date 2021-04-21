@@ -87,16 +87,19 @@
     #profile-listings-list.listing-main
       .row
         %h2.people-header
-          Subscribed Listings (Click on listing to unsubscribe)
-        %h2.people-header
-          %ul
-            - @listings = @current_user.subscribed_listings
-            - @listings.each do |ms|
-              - title = ms.title.downcase.gsub(" ", "-")
-              - id = ms.id
-              - url = "#{id}-#{title}"
-              %li
-                = link_to("#{ms.title}", "mailto:Rentals@allotme.co.uk")
+          Subscribed Listings
+        %div
+          - @listings = @current_user.subscribed_listings
+          - @listings.each do |ms|
+            - title = ms.title.downcase.gsub(" ", "-")
+            - id = ms.id
+            - url = "#{id}-#{title}"
+            .col-12.no-padding-add
+              .col-6
+                = "Active Rentals: #{ms.title}"
+              .col-6
+                .pull-right
+                  %a.button{href: "mailto:Rentals@allotme.co.uk"} Request Cancellation
 
   .col-4
     .row
