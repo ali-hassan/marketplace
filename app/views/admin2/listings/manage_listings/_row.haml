@@ -13,5 +13,10 @@
 %td{class: "#{'opacity_03' if opacity}"}
   - category = listing.category
   = link_to category.display_name(I18n.locale), search_path(category: category.url), target: :_blank
+- unless listing.greenfinger == "N/A"
+  %td.table-actions
+    = link_to "Unsubscribe", cancel_subscription_listings_path(id: listing.id), target: :_blank, class: 'btn btn-primary'
+
+  %td{class: "#{'opacity_03' if opacity}"}= listing.greenfinger
 %td.table-actions
   = render 'actions', presenter: presenter, listing: listing, opacity: opacity

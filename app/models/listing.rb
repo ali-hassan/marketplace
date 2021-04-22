@@ -177,9 +177,14 @@ class Listing < ApplicationRecord
     self.uuid ||= UUIDUtils.create_raw
   end
 
+  def greenfinger
+    self.monthly_subscriptions.first.person.full_name rescue "N/A"
+  end
+
   def subscription(current_user)
     MonthlySubscription.find_by(listing_id: self.id, person_id: current_user.id)
   end
+
   before_validation do
     # Normalize browser line-breaks.
     # Reason: Some browsers send line-break as \r\n which counts for 2 characters making the

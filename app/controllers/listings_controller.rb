@@ -103,7 +103,7 @@ class ListingsController < ApplicationController
     @listing      = Listing.find_by(id: params[:id])
     @subscription = @listing.subscription(@current_user)
     flash[:notice] = "Successfully unsubscribed the listing"
-    redirect_to listing_path(@listing)
+    redirect_to request.referer
   end
 
   def new
