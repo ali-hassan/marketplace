@@ -614,7 +614,7 @@ en:
           all: "All statuses"
           selected_js: "Selected statuses: "
           open: Open
-          closed: Closed
+          closed: Rented
           expired: Expired
           approval_pending: Pending
           approval_rejected: Rejected
@@ -626,7 +626,7 @@ en:
           category: Category
           status: Status
         open: Open
-        closed: Closed
+        closed: Rented
         expired: Expired
         approved: Approved
         approval_pending: Pending
