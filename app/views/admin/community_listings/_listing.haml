@@ -20,6 +20,7 @@
         edit_admin_community_listing_path(presenter.community.id, listing.id),
         remote: true
     - else
+      - status = (status == "Closed" ? "Rented" : status)
       = status
   %td
     = link_to edit_listing_path(listing) do
