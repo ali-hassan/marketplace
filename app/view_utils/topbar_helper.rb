@@ -26,13 +26,7 @@ module TopbarHelper
 
     {
       logo: {
-        href: PathHelpers.landing_page_path(
-          community_id: community.id,
-          default_locale: community.default_locale,
-          logged_in: user.present?,
-          locale_param: locale_param,
-          custom: true
-        ),
+        href: "https://www.allotme.co.uk",
         text: community.name(I18n.locale),
         image: community.wide_logo.present? ? community.stable_image_url(:wide_logo, :header) : nil,
         image_highres: community.wide_logo.present? ? community.stable_image_url(:wide_logo, :header_highres) : nil

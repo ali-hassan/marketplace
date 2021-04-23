@@ -23,7 +23,7 @@ class Logo extends Component {
   render() {
     return a({
       className: classNames('Logo', this.props.className, css.logo),
-      href: this.props.href,
+      href: "www.allotme.co.uk",
       style: this.props.color ? { color: this.props.color } : null,
     }, logoContent(this.props.image, this.props.image_highres, this.props.text));
   }

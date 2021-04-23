@@ -745,11 +745,12 @@ module ApplicationHelper
   end
 
   def landing_page_path
-    PathHelpers.landing_page_path(
-      community_id: @current_community.id,
-      logged_in: @current_user.present?,
-      default_locale: @current_community.default_locale,
-      locale_param: params[:locale])
+    # PathHelpers.landing_page_path(
+    #   community_id: @current_community.id,
+    #   logged_in: @current_user.present?,
+    #   default_locale: @current_community.default_locale,
+    #   locale_param: params[:locale])
+    "www.allotme.co.uk"
   end
 
   # Give an array of translation keys you need in JavaScript. The keys will be loaded and ready to be used in JS
