@@ -750,7 +750,7 @@ module ApplicationHelper
     #   logged_in: @current_user.present?,
     #   default_locale: @current_community.default_locale,
     #   locale_param: params[:locale])
-    "www.allotme.co.uk"
+    "https://www.allotme.co.uk"
   end
 
   # Give an array of translation keys you need in JavaScript. The keys will be loaded and ready to be used in JS
