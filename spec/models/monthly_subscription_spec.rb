@@ -12,6 +12,7 @@
 #  invoice_date     :date
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  host_id          :string(255)
 #
 
 require 'rails_helper'

@@ -12,6 +12,7 @@
 #  invoice_date     :date
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  host_id          :string(255)
 #
 
 require 'json'
@@ -19,4 +20,5 @@ require 'yaml'
 class MonthlySubscription < ApplicationRecord
   belongs_to :person
   belongs_to :listing
+  belongs_to :person, foreign_key: :host_id, class_name: 'Person', :dependent => :destroy
 end

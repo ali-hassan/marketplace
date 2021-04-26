@@ -1093,6 +1093,7 @@ CREATE TABLE `monthly_subscriptions` (
   `invoice_date` date DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
+  `host_id` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2487,6 +2488,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20201221132459'),
 ('20210108111345'),
 ('20210129114823'),
-('20210325073153');
+('20210325073153'),
+('20210425135627');
 
 
