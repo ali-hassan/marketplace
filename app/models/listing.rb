@@ -182,7 +182,7 @@ class Listing < ApplicationRecord
   end
 
   def subscription(current_user)
-    MonthlySubscription.find_by(listing_id: self.id, person_id: current_user.id)
+    MonthlySubscription.find_by_listing_id(self.id)
   end
 
   before_validation do

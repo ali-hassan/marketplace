@@ -20,5 +20,5 @@ require 'yaml'
 class MonthlySubscription < ApplicationRecord
   belongs_to :person
   belongs_to :listing
-  belongs_to :person, foreign_key: :host_id, class_name: 'Person', :dependent => :destroy
+  belongs_to :provider, foreign_key: :host_id, class_name: 'Person', :dependent => :destroy
 end
