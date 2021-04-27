@@ -541,7 +541,10 @@ function addListingMarkers(listings, viewport) {
 
         var marker = new google.maps.Marker({
           position: location,
-          title: entry["title"]
+          title: entry["title"],
+          icon : '/assets/map_icons/marker.png'
+              // "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
+
         });
 
         // Marker icon based on category
