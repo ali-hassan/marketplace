@@ -117,7 +117,9 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_loc
     'map': map,
     'draggable': draggable,
     'animation': google.maps.Animation.DROP,
-    'position': markerPosition
+    'position': markerPosition,
+      'icon' : '/assets/map_icons/marker.png'
+
   });
 
   infowindow = new google.maps.InfoWindow();
@@ -432,8 +434,9 @@ function addCommunityMarkers() {
             position: location,
             title: entry["name"],
             map: map,
-            icon: '/assets/dashboard/map_icons/tribe.png'
-          });
+            icon : '/assets/map_icons/marker.png'
+
+        });
           markers.push(marker);
           markersArr.push(marker);
 
