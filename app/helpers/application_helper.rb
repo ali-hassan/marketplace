@@ -246,10 +246,18 @@ module ApplicationHelper
     @current_community.location ? @current_community.location.latitude : "undefined"
   end
 
+  def listing_tribe_latitude(listing)
+    listing.origin_loc.present? ? listing.origin_loc.latitude : "undefined"
+  end
+
   # Helper method for javascript. Return "undefined"
   # if tribe has no location.
   def tribe_longitude
     @current_community.location ? @current_community.location.longitude : "undefined"
+  end
+
+  def listing_tribe_longitude(listing)
+    listing.origin_loc.present? ? listing.origin_loc.longitude : "undefined"
   end
 
   def add_p_tags(text)
