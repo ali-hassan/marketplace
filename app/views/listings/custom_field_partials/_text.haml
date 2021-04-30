@@ -1,4 +1,5 @@
 - question_name = custom_field_value.question.name(I18n.locale)
-%b= "#{question_name}:"
-- text_with_url_links do
-  = custom_field_value.text_value
+- unless question_name == "Promo Code"
+  %b= "#{question_name}:"
+  - text_with_url_links do
+    = custom_field_value.text_value
