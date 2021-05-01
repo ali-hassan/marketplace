@@ -299,7 +299,8 @@ class PreauthorizeTransactionsController < ApplicationController
                                gateway_fields: gateway_fields,
                                person_id: opts[:user].id,
                                person_uuid: opts[:user].uuid_object,
-                               invoice_date: Date.today)
+                               invoice_date: Date.today,
+                               host_id: opts[:listing].author.id)
 
     TransactionService::Transaction.create({
         transaction: transaction,
