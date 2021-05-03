@@ -14,9 +14,9 @@
       %a#confirm-action-link.radio-button-positive.js-confirm-radio-button{ data: { :"radio-button-value" => "confirmed" }, class: @presenter.confirm? ? "radio-button-selected" : "" }
         .radio-button-icon{class: icon_for("confirmed")}
         .radio-button-label= t("conversations.confirm.confirm")
-      %a#cancel-action-link.radio-button-negative.js-cancel-radio-button{ data: { :"radio-button-value" => "canceled" }, class: @presenter.cancel? ? "radio-button-selected" : "" }
-        .radio-button-icon{class: icon_for("canceled")}
-        .radio-button-label= t("conversations.confirm.cancel")
+      -#%a#cancel-action-link.radio-button-negative.js-cancel-radio-button{ data: { :"radio-button-value" => "canceled" }, class: @presenter.cancel? ? "radio-button-selected" : "" }
+      -#  .radio-button-icon{class: icon_for("canceled")}
+      -#  .radio-button-label= t("conversations.confirm.cancel")
 
       .conversation-action-description
         %div{:class => "confirm-description #{@presenter.confirm? ? '' : 'hidden'}"}
