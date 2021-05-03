@@ -181,12 +181,12 @@
             .icon-with-text.ss-check
             .text-with-icon
               = t('conversations.status_link.confirm')
-      .inbox-horizontally-aligned-link
-        = link_to cancel_admin_community_transaction_path(community_id: pr.community, id: transaction), class: 'cancel' do
-          .content
-            .icon-with-text.ss-delete
-            .text-with-icon
-              = t('conversations.status_link.cancel')
+      -#.inbox-horizontally-aligned-link
+      -#  = link_to cancel_admin_community_transaction_path(community_id: pr.community, id: transaction), class: 'cancel' do
+      -#    .content
+      -#      .icon-with-text.ss-delete
+      -#      .text-with-icon
+      -#        = t('conversations.status_link.cancel')
   - if pr.disputed?
     .conversation-status.text-center
       .inbox-horizontally-aligned-link
