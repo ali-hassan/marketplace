@@ -1325,6 +1325,7 @@ en:
       confirm: "Mark completed"
       cancel: Dispute
       continue: Continue
+      payment_text: Once payment is accepted, Your first month's rent will be transferred in 7 days
       continue_process: Mark as completed to start renting
       give_feedback_to: "Give feedback to %{person_link}"
       do_not_give_feedback: "Skip feedback"
