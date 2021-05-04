@@ -1318,12 +1318,14 @@ en:
       stripe-fee_label: "Payment processing fee"
     confirm:
       confirm_description: "If your order has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
+      confirm_before_description: "You can use this opportunity to give feedback on the booking process with your Host"
       cancel_description_team: "If your order was not fulfilled, you can mark it as 'disputed'. The %{service_name} team will review the situation and will decide to refund or dismiss your dispute request."
       cancel_payed_description: "If your request was accepted but you're having second thoughts, you can still cancel the request before the payment."
       canceling_payed_transaction: "Cancel transaction"
       confirm: "Mark completed"
       cancel: Dispute
       continue: Continue
+      continue_process: Mark as completed to start renting
       give_feedback_to: "Give feedback to %{person_link}"
       do_not_give_feedback: "Skip feedback"
     details:

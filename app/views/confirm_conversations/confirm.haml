@@ -20,7 +20,11 @@
 
       .conversation-action-description
         %div{:class => "confirm-description #{@presenter.confirm? ? '' : 'hidden'}"}
-          = t("conversations.confirm.confirm_description")
+          = t("conversations.confirm.confirm_before_description")
+
+        -#%div{:class => "confirm-description #{@presenter.confirm? ? '' : 'hidden'}"}
+        -#  = t("conversations.confirm.confirm_description")
+
         %div{:class => "cancel-description #{@presenter.cancel? ? '' : 'hidden'}"}
           = t("conversations.confirm.cancel_description_team")
 
@@ -47,4 +51,5 @@
         = radio_button_tag "give_feedback", false, !@presenter.give_feedback_value, :id => "do_not_give_feedback"
         = label_tag "do_not_give_feedback", t("conversations.confirm.do_not_give_feedback"), :class => "radio"
 
-    = form.button t("conversations.confirm.continue"), :class => "send_button", :id => "send_testimonial_button"
+    =# form.button t("conversations.confirm.continue"), :class => "send_button", :id => "send_testimonial_button"
+    = form.button t("conversations.confirm.continue_process"), :class => "send_button", :id => "send_testimonial_button"
