@@ -1447,7 +1447,7 @@ en:
           unknown_reason: "Payment is pending. Log in to your PayPal account to see more details."
           verify: "Waiting for you to verify your PayPal account"
       stripe:
-        waiting_confirmation_from_requester: "Waiting for %{requester_name} to mark the order completed. Once the order is marked as completed, the payment will be released to your bank account."
+        waiting_confirmation_from_requester: "Waiting for %{requester_name} to mark the order completed. Once the order is marked as completed, the payment will be released to your bank account in 7 days."
       order_canceled: "Order disputed"
       waiting_for_marketplace_review: "Waiting for the %{service_name} team to review the situation"
       marketplace_notified: "The %{service_name} team has been notified. You can also %{contact_link} if you want to share more details with them."
