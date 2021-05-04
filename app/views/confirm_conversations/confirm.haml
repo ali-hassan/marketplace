@@ -14,9 +14,10 @@
       %a#confirm-action-link.radio-button-positive.js-confirm-radio-button{ data: { :"radio-button-value" => "confirmed" }, class: @presenter.confirm? ? "radio-button-selected" : "" }
         .radio-button-icon{class: icon_for("confirmed")}
         .radio-button-label= t("conversations.confirm.confirm")
-      -#%a#cancel-action-link.radio-button-negative.js-cancel-radio-button{ data: { :"radio-button-value" => "canceled" }, class: @presenter.cancel? ? "radio-button-selected" : "" }
-      -#  .radio-button-icon{class: icon_for("canceled")}
-      -#  .radio-button-label= t("conversations.confirm.cancel")
+      - if params[:action] == "cancel"
+        %a#cancel-action-link.radio-button-negative.js-cancel-radio-button{ data: { :"radio-button-value" => "canceled" }, class: @presenter.cancel? ? "radio-button-selected" : "" }
+          .radio-button-icon{class: icon_for("canceled")}
+          .radio-button-label= t("conversations.confirm.cancel")
 
       .conversation-action-description
         %div{:class => "confirm-description #{@presenter.confirm? ? '' : 'hidden'}"}
@@ -25,8 +26,9 @@
         -#%div{:class => "confirm-description #{@presenter.confirm? ? '' : 'hidden'}"}
         -#  = t("conversations.confirm.payment_text")
 
-        -#%div{:class => "confirm-description #{@presenter.confirm? ? '' : 'hidden'}"}
-        -#  = t("conversations.confirm.confirm_description")
+        - if params[:action] == "cancel"
+          %div{:class => "confirm-description #{@presenter.confirm? ? '' : 'hidden'}"}
+            = t("conversations.confirm.confirm_description")
 
         %div{:class => "cancel-description #{@presenter.cancel? ? '' : 'hidden'}"}
           = t("conversations.confirm.cancel_description_team")
@@ -54,5 +56,7 @@
         = radio_button_tag "give_feedback", false, !@presenter.give_feedback_value, :id => "do_not_give_feedback"
         = label_tag "do_not_give_feedback", t("conversations.confirm.do_not_give_feedback"), :class => "radio"
 
-    =# form.button t("conversations.confirm.continue"), :class => "send_button", :id => "send_testimonial_button"
-    = form.button t("conversations.confirm.continue_process"), :class => "send_button", :id => "send_testimonial_button"
+    - if params[:action] == "cancel"
+      = form.button t("conversations.confirm.continue"), :class => "send_button", :id => "send_testimonial_button"
+    - else
+      = form.button t("conversations.confirm.continue_process"), :class => "send_button", :id => "send_testimonial_button"
