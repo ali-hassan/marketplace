@@ -90,7 +90,7 @@
           Subscribed Listings
         %div
           - @listings = @current_user.try(:subscribed_listings)
-          - @listings = [@current_user.host.listing] if (@listings.nil? || @listings.empty?) && @current_user.host.present?
+          - @listings = [@current_user.host.listing] if (@listings.nil? || @listings.empty?) && @current_user.try(:host).present?
 
           - @listings.each do |ms|
             - title = ms.title.downcase.gsub(" ", "-")
