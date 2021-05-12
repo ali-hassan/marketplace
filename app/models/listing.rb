@@ -178,7 +178,7 @@ class Listing < ApplicationRecord
   end
 
   def greenfinger
-    self.monthly_subscriptions.first.person.full_name rescue "N/A"
+    self.monthly_subscriptions.last.person.full_name rescue "N/A"
   end
 
   def subscription(current_user)
