@@ -500,8 +500,11 @@ window.ST.imageUploader = function(listings, opts) {
     filePostprocessingError.onValue(function() {
       $element.showMessage(ST.t("listings.form.images.image_processing_failed"));
     });
+    $("#image-uploader-container input.fileupload").removeClass("error");
+    $("#image-uploader-container input.fileupload").removeAttr("required");
+      $("#image-uploader-container label.error").last().remove();
 
-    return {element: $element, stream: filePostprocessingDone};
+      return {element: $element, stream: filePostprocessingDone};
   }
 
   function renderPreview(listing) {
