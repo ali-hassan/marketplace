@@ -143,6 +143,7 @@
     %div{:class => main_container_class}
       - if @listings.total_entries > 0
         - if @view_type.eql?("map")
+          %p{style: "font-family:'DTLNObelBold';color: #96c445;"} Zoom in to view accurate location
           .home-map
             = render :partial => "map", locals: { viewport: viewport }
         - else
