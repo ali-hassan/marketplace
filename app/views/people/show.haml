@@ -90,8 +90,8 @@
           Subscribed Listings
         %div
           - @listings = @current_user.try(:subscribed_listings)
-          - @listings = [] if @listings.nil?
-          - @listings = [@current_user.host.listing] if @listings.empty? && @current_user.try(:host).present?
+          - @listings = [] if @listings.nil? || @listings == []
+          - @listings = @current_user.hosted_bookings.collect(&:listing).uniq if @listings.empty? && @current_user.try(:hosted_bookings).present?
 
           - @listings.each do |ms|
             - title = ms.title.downcase.gsub(" ", "-")
