@@ -292,15 +292,9 @@ class PreauthorizeTransactionsController < ApplicationController
     if(opts[:delivery_method] == :shipping)
       transaction[:shipping_price] = opts[:shipping_price]
     end
+    debugger
 
-    MonthlySubscription.create(listing_id: transaction[:listing_id],
-                               listing_uuid: transaction[:listing_uuid],
-                               transaction_opts: transaction,
-                               gateway_fields: gateway_fields,
-                               person_id: opts[:user].id,
-                               person_uuid: opts[:user].uuid_object,
-                               invoice_date: Date.today,
-                               host_id: opts[:listing].author.id)
+    MonthlySubscription.create(listing_id: transaction[:listing_id], listing_uuid: transaction[:listing_uuid], transaction_opts: transaction, gateway_fields: gateway_fields, person_id: opts[:user].id, person_uuid: opts[:user].uuid_object, invoice_date: Date.today, host_id: opts[:listing].author.id)
 
     TransactionService::Transaction.create({
         transaction: transaction,
@@ -447,3 +441,14 @@ class PreauthorizeTransactionsController < ApplicationController
     end
   end
 end
+# listing = Listing.find(15)
+# person = Person.find_by_given_name("Georgina")
+# MonthlySubscription.create(listing_id: listing.id, listing_uuid: listing.uuid, transaction_opts:nil, gateway_fields: nil, person_id: person.id, person_uuid: person.uuid_object, invoice_date: Date.today, host_id: listing.author.id)
+# ms = MonthlySubscription.new(listing_id: listing.id, listing_uuid: listing.uuid, transaction_opts: transaction_opts, gateway_fields: gateway_fields, person_id: person.id, person_uuid: person.uuid_object, invoice_date: Date.yesterday, host_id: listing.author.id)
+# m=MonthlySubscription.new listing_id: 15, listing_uuid: "e474adfc-afe6-11eb-bdfe-06b036800074", person_id: person.id, transaction_opts: {"community_id"=>1, "community_uuid"=>{"time_low"=>964070024, "time_mid"=>33370, "time_hi_and_version"=>4587, "clock_seq_hi_and_reserved"=>164, "clock_seq_low"=>181, "nodes"=>[6, 176, 54, 128, 0, 116]}, "listing_id"=>15, "listing_uuid"=>{"time_low"=>3832851964, "time_mid"=>45030, "time_hi_and_version"=>4587, "clock_seq_hi_and_reserved"=>189, "clock_seq_low"=>254, "nodes"=>[6, 176, 54, 128, 0, 116], "string"=>"e474adfc-afe6-11eb-bdfe-06b036800074"}, "listing_title"=>"Vegetable plot ", "starter_id"=>"J_vj4wGUENGTsl5t9eYqaw", "starter_uuid"=>{"time_low"=>968359934, "time_mid"=>33370, "time_hi_and_version"=>4587, "clock_seq_hi_and_reserved"=>164, "clock_seq_low"=>181, "nodes"=>[6, 176, 54, 128, 0, 116]}, "listing_author_id"=>"72lHsCQk71tVgAr5A9455A", "listing_author_uuid"=>{"time_low"=>958364536, "time_mid"=>45028, "time_hi_and_version"=>4587, "clock_seq_hi_and_reserved"=>138, "clock_seq_low"=>223, "nodes"=>[6, 176, 54, 128, 0, 116]}, "listing_quantity"=>1, "unit_type"=>"month", "unit_price"=>{"fractional"=>"3000.0", "currency"=>{"id"=>"gbp", "alternate_symbols"=>[], "decimal_mark"=>".", "disambiguate_symbol"=>nil, "html_entity"=>"dfd", "iso_code"=>"GBP", "iso_numeric"=>"826", "name"=>"British Pound", "priority"=>3, "smallest_denomination"=>1, "subunit"=>"Penny", "subunit_to_unit"=>100, "symbol"=>"£", "symbol_first"=>true, "thousands_separator"=>","}, "bank"=>{"store"=>{"index"=>{}, "options"=>{}, "mutex"=>{}, "in_transaction"=>false}, "rounding_method"=>nil}}, "unit_tr_key"=>nil, "unit_selector_tr_key"=>nil, "availability"=>"none", "content"=>"", "payment_gateway"=>"stripe", "payment_process"=>"preauthorize", "booking_fields"=>{"start_on"=>nil, "end_on"=>nil, "start_time"=>nil, "end_time"=>nil, "per_hour"=>nil}, "delivery_method"=>"none"}
+# , gateway_fields: {"stripe_email"=>"conor@allotme.co.uk", "stripe_token"=>nil, "shipping_address"=>nil, "service_name"=>"AllotMe", "stripe_payment_method_id"=>"pm_1IzgHlIefWskAZFZDQ92NAbo"}, invoice_date: "2021-06-07", host_id: "72lHsCQk71tVgAr5A9455A"
+
+
+
+
+# m=MonthlySubscription.new(listing_id: 15, listing_uuid: "e474adfc-afe6-11eb-bdfe-06b036800074", person_id: person.id, transaction_opts: {"community_id"=>1, "community_uuid"=>{"time_low"=>964070024, "time_mid"=>33370, "time_hi_and_version"=>4587, "clock_seq_hi_and_reserved"=>164, "clock_seq_low"=>181, "nodes"=>[6, 176, 54, 128, 0, 116]}, "listing_id"=>15, "listing_uuid"=>{"time_low"=>3832851964, "time_mid"=>45030, "time_hi_and_version"=>4587, "clock_seq_hi_and_reserved"=>189, "clock_seq_low"=>254, "nodes"=>[6, 176, 54, 128, 0, 116], "string"=>"e474adfc-afe6-11eb-bdfe-06b036800074"}, "listing_title"=>"Vegetable plot ", "starter_id"=>"J_vj4wGUENGTsl5t9eYqaw", "starter_uuid"=>{"time_low"=>968359934, "time_mid"=>33370, "time_hi_and_version"=>4587, "clock_seq_hi_and_reserved"=>164, "clock_seq_low"=>181, "nodes"=>[6, 176, 54, 128, 0, 116]}, "listing_author_id"=>"72lHsCQk71tVgAr5A9455A", "listing_author_uuid"=>{"time_low"=>958364536, "time_mid"=>45028, "time_hi_and_version"=>4587, "clock_seq_hi_and_reserved"=>138, "clock_seq_low"=>223, "nodes"=>[6, 176, 54, 128, 0, 116]}, "listing_quantity"=>1, "unit_type"=>"month", "unit_price"=>{"fractional"=>"3000.0", "currency"=>{"id"=>"gbp", "alternate_symbols"=>[], "decimal_mark"=>".", "disambiguate_symbol"=>nil, "html_entity"=>"dfd", "iso_code"=>"GBP", "iso_numeric"=>"826", "name"=>"British Pound", "priority"=>3, "smallest_denomination"=>1, "subunit"=>"Penny", "subunit_to_unit"=>100, "symbol"=>"£", "symbol_first"=>true, "thousands_separator"=>","}, "bank"=>{"store"=>{"index"=>{}, "options"=>{}, "mutex"=>{}, "in_transaction"=>false}, "rounding_method"=>nil}}, "unit_tr_key"=>nil, "unit_selector_tr_key"=>nil, "availability"=>"none", "content"=>"", "payment_gateway"=>"stripe", "payment_process"=>"preauthorize", "booking_fields"=>{"start_on"=>nil, "end_on"=>nil, "start_time"=>nil, "end_time"=>nil, "per_hour"=>nil}, "delivery_method"=>"none"})
