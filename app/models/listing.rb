@@ -64,7 +64,6 @@
 #  listings_homepage_query             (community_id,open,state,deleted,valid_until,sort_date)
 #  listings_updates_email              (community_id,open,state,deleted,valid_until,updates_email_at,created_at)
 #  person_listings                     (community_id,author_id)
-#  tmp_homepage_query                  (community_id,open,valid_until,sort_date,deleted)
 #
 
 class Listing < ApplicationRecord
@@ -178,7 +177,7 @@ class Listing < ApplicationRecord
   end
 
   def greenfinger
-    self.monthly_subscriptions.last.person.full_name rescue "N/A"
+    self.monthly_subscriptions.where(is_active: true).last.person.full_name rescue "N/A"
   end
 
   def subscription(current_user)

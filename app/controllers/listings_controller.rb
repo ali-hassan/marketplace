@@ -102,7 +102,7 @@ class ListingsController < ApplicationController
   def cancel_subscription
     @listing      = Listing.find_by(id: params[:id])
     @subscription = @listing.monthly_subscriptions.try(:last)
-    @subscription.delete if @subscription.present?
+    @subscription.update(is_active: false) if @subscription.present?
     flash[:notice] = "Successfully unsubscribed the listing"
     redirect_to request.referer
   end

@@ -253,7 +253,7 @@ class Person < ApplicationRecord
   end
 
   def subscribed_listings
-    self.monthly_subscriptions.collect(&:listing).uniq
+    self.monthly_subscriptions.where(is_active: true).collect(&:listing).uniq
   end
 
   # Creates a new email

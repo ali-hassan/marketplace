@@ -13,6 +13,7 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  host_id          :string(255)
+#  is_active        :boolean          default(TRUE)
 #
 
 require 'rails_helper'
