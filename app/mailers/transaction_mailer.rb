@@ -197,6 +197,25 @@ class TransactionMailer < ActionMailer::Base
       if address.present?
         mail(to: address,
              from: community_specific_sender(community),
+             subject: t("emails.new_transaction.error")) do |format|
+               format.html { render v2_template(community.id, 'new_transaction'), layout: v2_layout(community.id) }
+        end
+      end
+    end
+  end
+
+  def error_in_transaction(transaction, recipient, error)
+    @transaction = transaction
+    community = transaction.community
+    @error = error
+    set_up_layout_variables(recipient, community)
+    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
+      @community_name = community.full_name(recipient.locale)
+      @skip_unsubscribe_footer = true
+      address = recipient.confirmed_notification_emails_to
+      if address.present?
+        mail(to: address,
+             from: community_specific_sender(community),
              subject: t("emails.new_transaction.subject")) do |format|
                format.html { render v2_template(community.id, 'new_transaction'), layout: v2_layout(community.id) }
         end
