@@ -53,7 +53,7 @@ namespace :sharetribe do
 
 
           res=TransactionService::Transaction.create({transaction: transaction, gateway_fields: gateway_fields}, force_sync: true)
-          if res.errors.present?
+          if res.errors.present? || res[:errors].present?
             TransactionMailer.payment_receipt_to_seller(transaction).deliver_now
             TransactionMailer.payment_receipt_to_buyer(transaction).deliver_now
             TransactionMailer.error_in_transaction(transaction, @user, res.error).deliver_now
