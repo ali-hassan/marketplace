@@ -31,6 +31,7 @@ If you're looking for a customizable and extendable marketplace solution, [check
 ## Technology stack
 
 - Ruby 2.6
+- Recurring payment usin stripe
 - Ruby on Rails 5.2.3
 - MySQL 5.7
 - React + jQuery
