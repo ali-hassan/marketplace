@@ -262,7 +262,7 @@ class StripeService::API::StripeApiWrapper
           currency: currency,
           confirmation_method: 'manual',
           setup_future_usage: 'off_session',
-          save_payment_method: true,
+          # save_payment_method: true,
           confirm: true,
           on_behalf_of: seller_account_id,
           transfer_data: {
