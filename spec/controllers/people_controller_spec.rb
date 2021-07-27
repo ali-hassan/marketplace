@@ -44,6 +44,8 @@
 #  cloned_from                        :string(22)
 #  google_oauth2_id                   :string(255)
 #  linkedin_id                        :string(255)
+#  stripe_token                       :string(255)
+#  stripe_customer_id                 :string(255)
 #
 # Indexes
 #

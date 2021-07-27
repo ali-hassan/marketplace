@@ -144,6 +144,27 @@ window.ST = window.ST || {};
         inProgress = true;
 
         ST.transaction.toggleSpinner(spinner, true);
+
+          stripe.createToken(card).then(function(result) {
+              // Handle result.error or result.token
+
+              if (result.error) {
+                  inProgress = false;
+                  showError(ST.t('error_messages.stripe.generic_error'));
+              } else {
+                  // Otherwise send paymentMethod.id to server
+                  var existingToken = $('#stripe_token');
+                  if (existingToken.length > 0) {
+                      existingToken.val(result.token.id);
+                  } else {
+                      var mytokenid = result.token.id;
+                      var input1 = $('<input/>', {type: 'hidden', name: 'stripe_token', id: 'stripe_token', value: mytokenid});
+                      form.append(input1);
+                  }
+              }
+          });
+
+
         stripe.createPaymentMethod('card', card, {}).then(function(result) {
           if (result.error) {
             inProgress = false;

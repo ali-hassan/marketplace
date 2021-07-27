@@ -44,6 +44,15 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
+    def register_custom_customer(community:, email:, stripe_token:, metadata: {})
+      with_stripe_payment_config(community) do |payment_settings|
+        Stripe::Customer.create({
+                                    email: email,
+                                    customer: stripe_token
+                                }.merge(metadata: metadata))
+      end
+    end
+
     def update_customer(community:, customer_id:, token:)
       with_stripe_payment_config(community) do |payment_settings|
         customer = Stripe::Customer.retrieve(customer_id)
@@ -254,6 +263,7 @@ class StripeService::API::StripeApiWrapper
     end
 
     def create_payment_intent(community:, seller_account_id:, payment_method_id:, amount:, currency:, fee:, description:, metadata:)
+      debugger
       with_stripe_payment_config(community) do |payment_settings|
         Stripe::PaymentIntent.create(
           capture_method: 'manual',

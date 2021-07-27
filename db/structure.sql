@@ -1375,6 +1375,8 @@ CREATE TABLE `people` (
   `cloned_from` varchar(22) DEFAULT NULL,
   `google_oauth2_id` varchar(255) DEFAULT NULL,
   `linkedin_id` varchar(255) DEFAULT NULL,
+  `stripe_token` varchar(255) DEFAULT NULL,
+  `stripe_customer_id` varchar(255) DEFAULT NULL,
   UNIQUE KEY `index_people_on_username_and_community_id` (`username`,`community_id`),
   UNIQUE KEY `index_people_on_uuid` (`uuid`),
   UNIQUE KEY `index_people_on_email` (`email`),
@@ -2527,6 +2529,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20210325073153'),
 ('20210425135627'),
 ('20210506092643'),
-('20210607115752');
+('20210607115752'),
+('20210727155509');
 
 

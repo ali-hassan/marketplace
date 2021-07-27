@@ -37,6 +37,14 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def initiated
+    # // this will return customer object store, the customer id for later charges.
+    email = @current_user.emails[0].address
+    unless @current_user.stripe_customer_id.present?
+      cs=Stripe::Customer.create(email: email, source: params[:stripe_token])
+      @current_user.update_attributes stripe_token: params[:stripe_token], stripe_customer_id: cs.id
+    end
+    # cs=Stripe::Customer.retrieve("cus_JviS7Oxm4fFej3") ## get saved customer to run daily crone
+    # Stripe::Charge.create({amount: 4000, currency: "usd", customer: cs.id, description: "from console", capture: true})
     params_validator = params_per_hour? ? TransactionService::Validation::NewPerHourTransactionParams : TransactionService::Validation::NewTransactionParams
     validation_result = params_validator.validate(params.to_unsafe_hash).and_then { |params_entity|
       tx_params = add_defaults(
