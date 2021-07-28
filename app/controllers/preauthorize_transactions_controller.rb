@@ -38,6 +38,7 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def initiated
     # // this will return customer object store, the customer id for later charges.
+    Stripe.api_key = APP_CONFIG.feature_stripe_private_key
     email = @current_user.emails[0].address
     unless @current_user.stripe_customer_id.present?
       cs=Stripe::Customer.create(email: email, source: params[:stripe_token])
