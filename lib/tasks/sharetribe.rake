@@ -13,6 +13,7 @@ namespace :sharetribe do
       Rails.logger.info "Monthly Deduction Against Stripe Account"
       MonthlySubscription.all.map do |ms|
         if ms.invoice_date <= 2.days.ago
+          Stripe.api_key = APP_CONFIG.stripe_key
           opts = ms.transaction_opts
           @community  = Community.find_by_id(opts["community_id"])
           @listing    = ms.listing
