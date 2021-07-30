@@ -18,7 +18,7 @@ namespace :sharetribe do
           @community  = Community.find_by_id(opts["community_id"])
           @listing    = ms.listing
           @user       = ms.person
-          Stripe::Charge.create({amount: @listing.price*100, currency: "usd", customer: @user.stripe_customer_id, description: "Installment", capture: true})
+          Stripe::Charge.create({amount: @listing.price.to_i*100, currency:  @listing.price.currency.id.to_s, customer: @user.stripe_customer_id, description: @listing.title, capture: true})
 
 
           # gateway_fields = {stripe_email: ms.gateway_fields["stripe_email"], stripe_token: ms.gateway_fields["stripe_token"], shipping_address: ms.gateway_fields["stripe_token"], service_name: ms.gateway_fields["stripe_token"], stripe_payment_method_id: ms.gateway_fields["stripe_payment_method_id"]}
