@@ -1,3 +1,4 @@
+Mysql dump
 This is an export of the data of a Sharetribe marketplace.
 
 This Marketplace export has been made at Tue May 11 12:43:29 UTC 2021 with Sharetribe Version 10.1.0
