@@ -302,7 +302,7 @@ class PreauthorizeTransactionsController < ApplicationController
     end
 
     ms = MonthlySubscription.create(listing_id: transaction[:listing_id], listing_uuid: transaction[:listing_uuid], transaction_opts: transaction, gateway_fields: gateway_fields, person_id: opts[:user].id, person_uuid: opts[:user].uuid_object, invoice_date: Date.today, host_id: opts[:listing].author.id)
-    if ms.nil?
+    unless ms.nil?
       CreatePaymentLog.create monthly_subscription_id: ms.id, next_payment_on: Time.now + 1.month
     end
 
