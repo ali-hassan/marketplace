@@ -53,6 +53,10 @@ class FactoryGirl::DefinitionProxy
 end
 
 FactoryGirl.define do
+  factory :create_payment_log do
+    next_payment_on "MyString"
+    monthly_subscription_id 1
+  end
   factory :monthly_subscription do
     listing_id 1
     person_id "MyString"

@@ -23,7 +23,7 @@ CREATE TABLE `active_sessions` (
   KEY `index_active_sessions_on_person_id` (`person_id`),
   KEY `index_active_sessions_on_community_id` (`community_id`),
   KEY `index_active_sessions_on_refreshed_at` (`refreshed_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `active_storage_attachments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -38,7 +38,7 @@ CREATE TABLE `active_storage_attachments` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_active_storage_attachments_uniqueness` (`record_type`,`record_id`,`name`,`blob_id`),
   KEY `index_active_storage_attachments_on_blob_id` (`blob_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `active_storage_blobs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -54,7 +54,7 @@ CREATE TABLE `active_storage_blobs` (
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_active_storage_blobs_on_key` (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `ar_internal_metadata`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -65,7 +65,7 @@ CREATE TABLE `ar_internal_metadata` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `auth_tokens`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -83,7 +83,7 @@ CREATE TABLE `auth_tokens` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_auth_tokens_on_token` (`token`),
   KEY `index_on_person_id` (`person_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `billing_agreements`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -98,7 +98,7 @@ CREATE TABLE `billing_agreements` (
   `request_token` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_billing_agreements_on_paypal_account_id` (`paypal_account_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `bookings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -119,7 +119,7 @@ CREATE TABLE `bookings` (
   KEY `index_bookings_on_start_time` (`start_time`),
   KEY `index_bookings_on_end_time` (`end_time`),
   KEY `index_bookings_on_transaction_start_on_end_on_per_hour` (`transaction_id`,`start_on`,`end_on`,`per_hour`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -137,7 +137,7 @@ CREATE TABLE `categories` (
   KEY `index_categories_on_parent_id` (`parent_id`),
   KEY `index_categories_on_url` (`url`),
   KEY `index_categories_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `category_custom_fields`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -151,7 +151,7 @@ CREATE TABLE `category_custom_fields` (
   PRIMARY KEY (`id`),
   KEY `index_category_custom_fields_on_category_id_and_custom_field_id` (`category_id`,`custom_field_id`),
   KEY `index_category_custom_fields_on_custom_field_id` (`custom_field_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `category_listing_shapes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -161,7 +161,7 @@ CREATE TABLE `category_listing_shapes` (
   `listing_shape_id` int NOT NULL,
   UNIQUE KEY `unique_listing_shape_category_joins` (`listing_shape_id`,`category_id`),
   KEY `index_category_listing_shapes_on_category_id` (`category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `category_translations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -177,7 +177,7 @@ CREATE TABLE `category_translations` (
   PRIMARY KEY (`id`),
   KEY `index_category_translations_on_category_id` (`category_id`),
   KEY `category_id_with_locale` (`category_id`,`locale`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `checkout_accounts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -191,7 +191,7 @@ CREATE TABLE `checkout_accounts` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `comments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -206,7 +206,7 @@ CREATE TABLE `comments` (
   `community_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_comments_on_listing_id` (`listing_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `communities`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -324,7 +324,7 @@ CREATE TABLE `communities` (
   UNIQUE KEY `index_communities_on_uuid` (`uuid`),
   KEY `index_communities_on_domain` (`domain`),
   KEY `index_communities_on_ident` (`ident`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `community_customizations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -364,7 +364,7 @@ CREATE TABLE `community_customizations` (
   `profile_meta_description` text,
   PRIMARY KEY (`id`),
   KEY `index_community_customizations_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `community_memberships`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -385,7 +385,7 @@ CREATE TABLE `community_memberships` (
   UNIQUE KEY `index_community_memberships_on_person_id` (`person_id`),
   KEY `index_community_memberships_on_community_id` (`community_id`),
   KEY `community_person_status` (`community_id`,`person_id`,`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `community_social_logos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -402,7 +402,7 @@ CREATE TABLE `community_social_logos` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_community_social_logos_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `community_translations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -417,7 +417,7 @@ CREATE TABLE `community_translations` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_community_translations_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `contact_requests`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -431,7 +431,7 @@ CREATE TABLE `contact_requests` (
   `plan_type` varchar(255) DEFAULT NULL,
   `marketplace_type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `conversations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -450,7 +450,7 @@ CREATE TABLE `conversations` (
   KEY `index_conversations_on_community_id` (`community_id`),
   KEY `index_conversations_on_last_message_at` (`last_message_at`),
   KEY `index_conversations_on_starting_page` (`starting_page`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `coupon_redemptions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -464,7 +464,7 @@ CREATE TABLE `coupon_redemptions` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_coupon_redemptions_on_coupon_id` (`coupon_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `coupons`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -483,7 +483,19 @@ CREATE TABLE `coupons` (
   `updated_at` datetime NOT NULL,
   `attachments` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `create_payment_logs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `create_payment_logs` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `next_payment_on` varchar(255) DEFAULT NULL,
+  `monthly_subscription_id` int DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `custom_field_names`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -498,7 +510,7 @@ CREATE TABLE `custom_field_names` (
   PRIMARY KEY (`id`),
   KEY `index_custom_field_names_on_custom_field_id` (`custom_field_id`),
   KEY `locale_index` (`custom_field_id`,`locale`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `custom_field_option_selections`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -513,7 +525,7 @@ CREATE TABLE `custom_field_option_selections` (
   PRIMARY KEY (`id`),
   KEY `index_selected_options_on_custom_field_value_id` (`custom_field_value_id`),
   KEY `index_custom_field_option_selections_on_custom_field_option_id` (`custom_field_option_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `custom_field_option_titles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -528,7 +540,7 @@ CREATE TABLE `custom_field_option_titles` (
   PRIMARY KEY (`id`),
   KEY `index_custom_field_option_titles_on_custom_field_option_id` (`custom_field_option_id`),
   KEY `locale_index` (`custom_field_option_id`,`locale`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `custom_field_options`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -541,7 +553,7 @@ CREATE TABLE `custom_field_options` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_custom_field_options_on_custom_field_id` (`custom_field_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `custom_field_values`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -562,7 +574,7 @@ CREATE TABLE `custom_field_values` (
   KEY `index_custom_field_values_on_listing_id` (`listing_id`),
   KEY `index_custom_field_values_on_type` (`type`),
   KEY `index_custom_field_values_on_person_id` (`person_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `custom_fields`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -585,7 +597,7 @@ CREATE TABLE `custom_fields` (
   PRIMARY KEY (`id`),
   KEY `index_custom_fields_on_community_id` (`community_id`),
   KEY `index_custom_fields_on_search_filter` (`search_filter`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `delayed_jobs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -608,7 +620,7 @@ CREATE TABLE `delayed_jobs` (
   KEY `index_delayed_jobs_on_locked_created` (`locked_at`,`created_at`),
   KEY `index_delayed_jobs_on_attempts_and_run_at_and_priority` (`attempts`,`run_at`,`priority`),
   KEY `delayed_jobs_pending_polling` (`failed_at`,`priority`,`run_at`,`queue`,`locked_at`,`locked_by`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `domain_setups`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -627,7 +639,7 @@ CREATE TABLE `domain_setups` (
   UNIQUE KEY `index_domain_setups_on_community_id` (`community_id`),
   KEY `index_domain_setups_on_state_and_updated_at` (`state`,`updated_at`),
   KEY `index_domain_setups_on_critical_error` (`critical_error`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `emails`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -649,7 +661,7 @@ CREATE TABLE `emails` (
   KEY `index_emails_on_address` (`address`),
   KEY `index_emails_on_community_id` (`community_id`),
   KEY `index_emails_on_confirmation_token` (`confirmation_token`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `export_task_results`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -665,7 +677,7 @@ CREATE TABLE `export_task_results` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `feature_flags`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -680,7 +692,7 @@ CREATE TABLE `feature_flags` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_feature_flags_on_community_id_and_person_id` (`community_id`,`person_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `feedbacks`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -696,7 +708,7 @@ CREATE TABLE `feedbacks` (
   `email` varchar(255) DEFAULT NULL,
   `community_id` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `follower_relationships`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -711,7 +723,7 @@ CREATE TABLE `follower_relationships` (
   UNIQUE KEY `index_follower_relationships_on_person_id_and_follower_id` (`person_id`,`follower_id`),
   KEY `index_follower_relationships_on_person_id` (`person_id`),
   KEY `index_follower_relationships_on_follower_id` (`follower_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `invitation_unsubscribes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -725,7 +737,7 @@ CREATE TABLE `invitation_unsubscribes` (
   PRIMARY KEY (`id`),
   KEY `index_invitation_unsubscribes_on_community_id` (`community_id`),
   KEY `index_invitation_unsubscribes_on_email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `invitations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -746,7 +758,7 @@ CREATE TABLE `invitations` (
   PRIMARY KEY (`id`),
   KEY `index_invitations_on_inviter_id` (`inviter_id`),
   KEY `index_invitations_on_code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `landing_page_versions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -761,7 +773,7 @@ CREATE TABLE `landing_page_versions` (
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_landing_page_versions_on_community_id_and_version` (`community_id`,`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `landing_pages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -774,7 +786,7 @@ CREATE TABLE `landing_pages` (
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_landing_pages_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `listing_blocked_dates`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -788,7 +800,7 @@ CREATE TABLE `listing_blocked_dates` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_listing_blocked_dates_on_listing_id_and_blocked_at` (`listing_id`,`blocked_at`),
   KEY `index_listing_blocked_dates_on_listing_id` (`listing_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `listing_followers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -798,7 +810,7 @@ CREATE TABLE `listing_followers` (
   `listing_id` int DEFAULT NULL,
   KEY `index_listing_followers_on_listing_id` (`listing_id`),
   KEY `index_listing_followers_on_person_id` (`person_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `listing_images`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -826,7 +838,7 @@ CREATE TABLE `listing_images` (
   `email_hash` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_listing_images_on_listing_id` (`listing_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `listing_shapes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -849,7 +861,7 @@ CREATE TABLE `listing_shapes` (
   KEY `index_listing_shapes_on_community_id` (`community_id`),
   KEY `index_listing_shapes_on_name` (`name`),
   KEY `multicol_index` (`community_id`,`deleted`,`sort_priority`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `listing_units`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -866,7 +878,7 @@ CREATE TABLE `listing_units` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_listing_units_on_listing_shape_id` (`listing_shape_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `listing_working_time_slots`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -881,7 +893,7 @@ CREATE TABLE `listing_working_time_slots` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_listing_working_time_slots_on_listing_id` (`listing_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `listings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -949,7 +961,7 @@ CREATE TABLE `listings` (
   KEY `listings_homepage_query` (`community_id`,`open`,`state`,`deleted`,`valid_until`,`sort_date`),
   KEY `listings_updates_email` (`community_id`,`open`,`state`,`deleted`,`valid_until`,`updates_email_at`,`created_at`),
   KEY `tmp_homepage_query` (`community_id`,`open`,`valid_until`,`sort_date`,`deleted`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `locations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -970,7 +982,7 @@ CREATE TABLE `locations` (
   KEY `index_locations_on_person_id` (`person_id`),
   KEY `index_locations_on_listing_id` (`listing_id`),
   KEY `index_locations_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `marketplace_configurations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -989,7 +1001,7 @@ CREATE TABLE `marketplace_configurations` (
   `display_invite_menu` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `index_marketplace_configurations_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `marketplace_plans`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1006,7 +1018,7 @@ CREATE TABLE `marketplace_plans` (
   PRIMARY KEY (`id`),
   KEY `index_marketplace_plans_on_community_id` (`community_id`),
   KEY `index_marketplace_plans_on_created_at` (`created_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `marketplace_sender_emails`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1022,7 +1034,7 @@ CREATE TABLE `marketplace_sender_emails` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_marketplace_sender_emails_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `marketplace_setup_steps`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1039,7 +1051,7 @@ CREATE TABLE `marketplace_setup_steps` (
   `payment` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_marketplace_setup_steps_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `marketplace_trials`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1053,7 +1065,7 @@ CREATE TABLE `marketplace_trials` (
   PRIMARY KEY (`id`),
   KEY `index_marketplace_trials_on_community_id` (`community_id`),
   KEY `index_marketplace_trials_on_created_at` (`created_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `menu_link_translations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1068,7 +1080,7 @@ CREATE TABLE `menu_link_translations` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_menu_link_translations_on_menu_link_id` (`menu_link_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `menu_links`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1082,7 +1094,7 @@ CREATE TABLE `menu_links` (
   `entity_type` int DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_menu_links_on_community_and_sort` (`community_id`,`sort_priority`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `mercury_images`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1096,7 +1108,7 @@ CREATE TABLE `mercury_images` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `messages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1111,7 +1123,7 @@ CREATE TABLE `messages` (
   PRIMARY KEY (`id`),
   KEY `index_messages_on_conversation_id` (`conversation_id`),
   KEY `index_messages_on_sender_id` (`sender_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `monthly_subscriptions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1130,7 +1142,7 @@ CREATE TABLE `monthly_subscriptions` (
   `host_id` varchar(255) DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `order_permissions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1148,7 +1160,7 @@ CREATE TABLE `order_permissions` (
   `permissions_granted` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_order_permissions_on_paypal_account_id` (`paypal_account_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `participations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1167,7 +1179,7 @@ CREATE TABLE `participations` (
   PRIMARY KEY (`id`),
   KEY `index_participations_on_person_id` (`person_id`),
   KEY `index_participations_on_conversation_id` (`conversation_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `payment_settings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1198,7 +1210,7 @@ CREATE TABLE `payment_settings` (
   `key_encryption_padding` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_payment_settings_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `paypal_accounts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1216,7 +1228,7 @@ CREATE TABLE `paypal_accounts` (
   KEY `index_paypal_accounts_on_community_id` (`community_id`),
   KEY `index_paypal_accounts_on_payer_id` (`payer_id`),
   KEY `index_paypal_accounts_on_person_id` (`person_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `paypal_ipn_messages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1228,7 +1240,7 @@ CREATE TABLE `paypal_ipn_messages` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `paypal_payments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1268,7 +1280,7 @@ CREATE TABLE `paypal_payments` (
   UNIQUE KEY `index_paypal_payments_on_order_id` (`order_id`),
   UNIQUE KEY `index_paypal_payments_on_authorization_id` (`authorization_id`),
   KEY `index_paypal_payments_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `paypal_process_tokens`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1287,7 +1299,7 @@ CREATE TABLE `paypal_process_tokens` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_paypal_process_tokens_on_process_token` (`process_token`),
   UNIQUE KEY `index_paypal_process_tokens_on_transaction` (`transaction_id`,`community_id`,`op_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `paypal_refunds`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1303,7 +1315,7 @@ CREATE TABLE `paypal_refunds` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_paypal_refunds_on_refunding_id` (`refunding_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `paypal_tokens`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1327,7 +1339,7 @@ CREATE TABLE `paypal_tokens` (
   UNIQUE KEY `index_paypal_tokens_on_token` (`token`),
   KEY `index_paypal_tokens_on_community_id` (`community_id`),
   KEY `index_paypal_tokens_on_transaction_id` (`transaction_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `people`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1391,7 +1403,7 @@ CREATE TABLE `people` (
   KEY `index_people_on_community_id_and_google_oauth2_id` (`community_id`,`google_oauth2_id`),
   KEY `index_people_on_linkedin_id` (`linkedin_id`),
   KEY `index_people_on_community_id_and_linkedin_id` (`community_id`,`linkedin_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `schema_migrations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1399,7 +1411,7 @@ DROP TABLE IF EXISTS `schema_migrations`;
 CREATE TABLE `schema_migrations` (
   `version` varchar(255) NOT NULL,
   UNIQUE KEY `unique_schema_migrations` (`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `sessions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1413,7 +1425,7 @@ CREATE TABLE `sessions` (
   PRIMARY KEY (`id`),
   KEY `index_sessions_on_session_id` (`session_id`),
   KEY `index_sessions_on_updated_at` (`updated_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `shipping_addresses`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1435,7 +1447,7 @@ CREATE TABLE `shipping_addresses` (
   `country_code` varchar(8) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_shipping_addresses_on_transaction_id` (`transaction_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `social_links`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1451,7 +1463,7 @@ CREATE TABLE `social_links` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_social_links_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `stripe_accounts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1470,7 +1482,7 @@ CREATE TABLE `stripe_accounts` (
   KEY `index_stripe_accounts_on_community_id` (`community_id`),
   KEY `index_stripe_accounts_on_person_id` (`person_id`),
   KEY `index_stripe_accounts_on_api_version` (`api_version`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `stripe_payments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1499,7 +1511,7 @@ CREATE TABLE `stripe_payments` (
   `stripe_payment_intent_status` varchar(255) DEFAULT NULL,
   `stripe_payment_intent_client_secret` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `testimonials`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1519,7 +1531,7 @@ CREATE TABLE `testimonials` (
   KEY `index_testimonials_on_receiver_id` (`receiver_id`),
   KEY `index_testimonials_on_transaction_id` (`transaction_id`),
   KEY `index_testimonials_on_author_id` (`author_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `transaction_process_tokens`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1538,7 +1550,7 @@ CREATE TABLE `transaction_process_tokens` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_paypal_process_tokens_on_transaction` (`transaction_id`,`community_id`,`op_name`),
   UNIQUE KEY `index_transaction_process_tokens_on_process_token` (`process_token`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `transaction_processes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1552,7 +1564,7 @@ CREATE TABLE `transaction_processes` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_transaction_process_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `transaction_transitions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1569,7 +1581,7 @@ CREATE TABLE `transaction_transitions` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_transaction_transitions_on_sort_key_and_conversation_id` (`sort_key`,`transaction_id`),
   KEY `index_transaction_transitions_on_conversation_id` (`transaction_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `transactions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1623,7 +1635,7 @@ CREATE TABLE `transactions` (
   KEY `index_transactions_on_listing_author_id` (`listing_author_id`),
   KEY `community_starter_state` (`community_id`,`starter_id`,`current_state`),
   KEY `index_transactions_on_listing_id_and_current_state` (`listing_id`,`current_state`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -2530,6 +2542,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20210425135627'),
 ('20210506092643'),
 ('20210607115752'),
-('20210727155509');
+('20210727155509'),
+('20210820115001');
 
 

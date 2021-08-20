@@ -22,6 +22,7 @@ class MonthlySubscription < ApplicationRecord
   belongs_to :person
   belongs_to :listing
   belongs_to :host, foreign_key: :host_id, class_name: 'Person', :dependent => :destroy
+  has_many :create_payment_logs
 
   default_scope { where(is_active: true) }
 end
