@@ -19,7 +19,9 @@ namespace :sharetribe do
           @listing    = ms.listing
           @user       = ms.person
           Stripe::Charge.create({amount: @listing.price.to_i*100, currency:  @listing.price.currency.id.to_s, customer: @user.stripe_customer_id, description: @listing.title, capture: true})
-
+          unless ms.nil?
+            CreatePaymentLog.create monthly_subscription_id: ms.id, next_payment_on: Time.now + 1.month
+          end
 
           # gateway_fields = {stripe_email: ms.gateway_fields["stripe_email"], stripe_token: ms.gateway_fields["stripe_token"], shipping_address: ms.gateway_fields["stripe_token"], service_name: ms.gateway_fields["stripe_token"], stripe_payment_method_id: ms.gateway_fields["stripe_payment_method_id"]}
 
