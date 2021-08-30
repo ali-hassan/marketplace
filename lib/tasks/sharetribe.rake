@@ -23,46 +23,6 @@ namespace :sharetribe do
             CreatePaymentLog.create monthly_subscription_id: ms.id, next_payment_on: Time.now + 1.month
           end
 
-          # gateway_fields = {stripe_email: ms.gateway_fields["stripe_email"], stripe_token: ms.gateway_fields["stripe_token"], shipping_address: ms.gateway_fields["stripe_token"], service_name: ms.gateway_fields["stripe_token"], stripe_payment_method_id: ms.gateway_fields["stripe_payment_method_id"]}
-
-
-          # transaction    = {
-          #     community_id: @community.id,
-          #     community_uuid: @community.uuid_object,
-          #     listing_id: @listing.id,
-          #     listing_uuid: @listing.uuid_object,
-          #     listing_title: @listing.title,
-          #     starter_id: @user.id,
-          #     starter_uuid: @user.uuid_object,
-          #     listing_author_id: @listing.author.id,
-          #     listing_author_uuid: @listing.author.uuid_object,
-          #     listing_quantity: opts["listing_quantity"],
-          #     unit_type: @listing.unit_type,
-          #     unit_price: @listing.price,
-          #     unit_tr_key: @listing.unit_tr_key,
-          #     unit_selector_tr_key: @listing.unit_selector_tr_key,
-          #     availability: @listing.availability,
-          #     content: opts["content"],
-          #     payment_gateway: :stripe,
-          #     payment_process: :preauthorize,
-          #
-          #     booking_fields: {
-          #         start_on: Date.today,
-          #         end_on: Date.today + 1.month,
-          #         start_time: ms.transaction_opts["booking_fields"]["start_time"],
-          #         end_time: ms.transaction_opts["booking_fields"]["end_time"],
-          #         per_hour: ms.transaction_opts["booking_fields"]["per_hour"]
-          #     },
-          #     delivery_method: ms.transaction_opts["delivery_method"]
-          # }
-
-
-          # res=TransactionService::Transaction.create({transaction: transaction, gateway_fields: gateway_fields}, force_sync: true)
-          # if res.errors.present? || res[:errors].present?
-          #   TransactionMailer.payment_receipt_to_seller(transaction).deliver_now
-          #   TransactionMailer.payment_receipt_to_buyer(transaction).deliver_now
-          #   TransactionMailer.error_in_transaction(transaction, @user, res.error).deliver_now
-          # end
         end
       end
     end
