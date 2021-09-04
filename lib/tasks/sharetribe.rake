@@ -11,18 +11,17 @@ namespace :sharetribe do
     desc "Sends the community updates email to everyone who should receive it now"
     task :subscriptions => :environment do |t, args|
       Rails.logger.info "Monthly Deduction Against Stripe Account"
-      MonthlySubscription.all.map do |ms|
-        if ms.invoice_date <= 2.days.ago
-          Stripe.api_key = APP_CONFIG.stripe_key
-          opts = ms.transaction_opts
-          @community  = Community.find_by_id(opts["community_id"])
-          @listing    = ms.listing
-          @user       = ms.person
-          Stripe::Charge.create({amount: @listing.price.to_i*100, currency:  @listing.price.currency.id.to_s, customer: @user.stripe_customer_id, description: @listing.title, capture: true})
-          unless ms.nil?
-            CreatePaymentLog.create monthly_subscription_id: ms.id, next_payment_on: Time.now + 1.month
-          end
-
+      MonthlySubscription.where("invoice_date <= ?", 1.month.ago).map do |ms|
+        Stripe.api_key = APP_CONFIG.stripe_key
+        opts = ms.transaction_opts
+        @community  = Community.find_by_id(opts["community_id"])
+        @listing    = ms.listing
+        @user       = ms.person
+        puts "capturing payment"
+        Stripe::Charge.create({amount: @listing.price.to_i*100, currency:  @listing.price.currency.id.to_s, customer: @user.stripe_customer_id, description: @listing.title, capture: true}) rescue false
+        puts "Payment captured"
+        unless ms.nil?
+          CreatePaymentLog.create monthly_subscription_id: ms.id, next_payment_on: Time.now + 1.month
         end
       end
     end
