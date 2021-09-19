@@ -18,10 +18,14 @@ namespace :sharetribe do
         @listing    = ms.listing
         @user       = ms.person
         puts "capturing payment"
-        Stripe::Charge.create({amount: @listing.price.to_i*100, currency:  @listing.price.currency.id.to_s, customer: @user.stripe_customer_id, description: @listing.title, capture: true}) rescue false
+        sp = Stripe::Charge.create({amount: @listing.price.to_i*100, currency:  @listing.price.currency.id.to_s, customer: @user.stripe_customer_id, description: @listing.title, capture: true}) rescue false
         puts "Payment captured"
-        unless ms.nil?
+        puts "SP: #{sp}"
+        unless sp.nil? || sp == false
+          ms.update invoice_date: Date.today
+          puts "Creating Logs"
           CreatePaymentLog.create monthly_subscription_id: ms.id, next_payment_on: Time.now + 1.month
+          puts "End logs"
         end
       end
     end
