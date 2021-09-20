@@ -23,6 +23,7 @@ namespace :sharetribe do
         puts "SP: #{sp}"
         unless sp.nil? || sp == false
           ms.update invoice_date: Date.today
+          puts "updated monthly_subscription invoice date= #{ms.invoice_date}"
           puts "Creating Logs"
           CreatePaymentLog.create monthly_subscription_id: ms.id, next_payment_on: Time.now + 1.month
           puts "End logs"
