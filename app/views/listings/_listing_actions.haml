@@ -79,12 +79,12 @@
       = hidden_field_tag(:listing_id, @listing.id)
 
       %p Minimum Garden Rental is 3 months. Your booking will automatically renew every month until cancelled by either party.
-      - if @listing.subscription(@current_user).present?
-        .listing-view-admin-link
-          = link_to cancel_subscription_listings_path(id: @listing.id), data: {confirm: t("listings.cancel_a_listing_cannot_be_undone")},
-            class: 'icon-with-text-container' do
-            = icon_tag("trash", ["icon-part"])
-            .text-part= t("listings.edit_links.cancel_listing")
+      -#- if @listing.subscription(@current_user).present?
+      -#  .listing-view-admin-link
+      -#    = link_to cancel_subscription_listings_path(id: @listing.id), data: {confirm: t("listings.cancel_a_listing_cannot_be_undone")},
+      -#      class: 'icon-with-text-container' do
+      -#      = icon_tag("trash", ["icon-part"])
+      -#      .text-part= t("listings.edit_links.cancel_listing")
 
       - if @listing_presenter.buyer_fee?
         .row
