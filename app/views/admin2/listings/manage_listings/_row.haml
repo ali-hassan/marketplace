@@ -18,5 +18,8 @@
 - unless listing.greenfinger == "N/A"
   %td{class: "#{'opacity_03' if opacity}"}= listing.greenfinger
 
+  %td= listing.monthly_subscriptions.last.create_payment_logs.last.next_payment_on
+  %td= listing.monthly_subscriptions.last.create_payment_logs.last.created_at
+
   %td.table-actions
     = link_to "Unsubscribe", cancel_subscription_listings_path(id: listing.id), target: :_blank, class: 'btn btn-primary'
