@@ -18,7 +18,7 @@
             = render 'sort_link', column: 'last_activity', direction: sort_link_direction('last_activity'), title: t('admin2.manage_transactions.latest_activity')
           %th{scope: :col}= t('admin2.manage_transactions.status')
           %th{scope: :col}= t('admin2.manage_transactions.amount')
-          %th{scope: :col}= "Subscription"
+          %th{scope: :col}= "Sub. Cancel Date"
           %th{scope: :col}= t('admin2.manage_transactions.actions')
       %tbody
         = render partial: 'transaction', collection: @transactions_presenter.transactions
