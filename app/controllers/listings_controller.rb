@@ -104,7 +104,11 @@ class ListingsController < ApplicationController
     @subscription = @listing.monthly_subscriptions.try(:last)
 
     if @current_user.is_admin?
-      @subscription.update(is_active: false) if @subscription.present?
+      if @subscription.present?
+        @subscription.update(is_active: false)
+        @subscription.update(cancel_subscription: false)
+        @subscription.update(canceled_on: Date.today)
+      end
       flash[:notice] = "Successfully unsubscribed the listing"
     end
 

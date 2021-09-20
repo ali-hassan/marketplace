@@ -1141,6 +1141,8 @@ CREATE TABLE `monthly_subscriptions` (
   `updated_at` datetime NOT NULL,
   `host_id` varchar(255) DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT '1',
+  `cancel_subscription` tinyint(1) DEFAULT '0',
+  `canceled_on` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2543,6 +2545,8 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20210506092643'),
 ('20210607115752'),
 ('20210727155509'),
-('20210820115001');
+('20210820115001'),
+('20210920174458'),
+('20210920174844');
 
 

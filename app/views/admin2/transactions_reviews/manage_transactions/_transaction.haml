@@ -16,6 +16,8 @@
   %td
     = transaction.payment_total ? MoneyViewUtils.to_humanized(transaction.payment_total) : ''
   %td
+    = transaction.listing.monthly_subscriptions.last.try(:canceled_on) || "N/A"
+  %td
     = link_to admin2_transactions_reviews_manage_transaction_path(transaction) do
       = image_tag 'svg/eye.svg', alt: 'eye'
       = t('admin2.manage_transactions.view_details')
