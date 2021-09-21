@@ -196,4 +196,5 @@ group :deployment do
   gem 'capistrano3-puma',   require: false
   gem 'capistrano-npm'
 end
+gem "smarter_csv"
 gem 'whenever', require: false
