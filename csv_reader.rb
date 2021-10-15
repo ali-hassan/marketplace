@@ -17,6 +17,8 @@ CSV.foreach(data).map do |row|
     col_vals = row[index];
     cat_name = col_vals.first
 
+
+
     url = URI("https://172.31.211.137/api/categories")
     https = Net::HTTP.new(url.host, url.port)
     https.use_ssl = true
