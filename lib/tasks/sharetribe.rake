@@ -11,7 +11,7 @@ namespace :sharetribe do
     desc "Sends the community updates email to everyone who should receive it now"
     task :subscriptions => :environment do |t, args|
       Rails.logger.info "Monthly Deduction Against Stripe Account"
-      MonthlySubscription.where(invoice_date: 1.month.ago).map do |ms|
+      MonthlySubscription.where(invoice_date: 1.month.ago).uniq.map do |ms|
         Stripe.api_key = APP_CONFIG.stripe_key
         opts = ms.transaction_opts
         @community  = Community.find_by_id(opts["community_id"])
