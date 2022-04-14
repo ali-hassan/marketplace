@@ -11,7 +11,7 @@ require 'capistrano/bundler'
 require "whenever/capistrano"
 
 require 'capistrano/rails/assets'
-require 'capistrano/rails/migrations'
+# require 'capistrano/rails/migrations'
 require 'capistrano/puma'
 install_plugin Capistrano::Puma
 require 'capistrano/npm'
