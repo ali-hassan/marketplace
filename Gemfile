@@ -190,7 +190,7 @@ group :deployment do
   gem "capistrano", "=3.11"
   gem 'capistrano3-delayed-job', '~> 1.0'
   gem 'capistrano-ssh-doctor', '~> 1.0'
-  gem 'capistrano-rvm'
+  gem "capistrano-rvm", require: false
   gem 'capistrano-rails',   require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano3-puma',   require: false
@@ -198,3 +198,5 @@ group :deployment do
 end
 gem "smarter_csv"
 gem 'whenever', require: false
+gem 'ed25519'
+gem 'bcrypt_pbkdf'

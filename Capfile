@@ -13,7 +13,8 @@ require "whenever/capistrano"
 require 'capistrano/rails/assets'
 # require 'capistrano/rails/migrations'
 require 'capistrano/puma'
-install_plugin Capistrano::Puma
+# install_plugin Capistrano::Puma
+
 require 'capistrano/npm'
 require 'thinking_sphinx/capistrano'
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
